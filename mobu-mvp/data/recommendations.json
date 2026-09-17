@@ -1,0 +1,41 @@
+[
+  {
+    "id": "rec-001",
+    "ticker": "SHP.JO",
+    "name": "Shoprite Holdings Ltd",
+    "action": "BUY",
+    "confidence": 0.85,
+    "priceTarget": 185.50,
+    "currentPrice": 168.20,
+    "upside": 10.3,
+    "reasoning": "Undervalued relative to sector, strong fundamentals, defensive sector matches your risk profile",
+    "sector": "Consumer Staples",
+    "exchange": "JSE"
+  },
+  {
+    "id": "rec-002",
+    "ticker": "NPN.JO",
+    "name": "Naspers Ltd",
+    "action": "BUY",
+    "confidence": 0.78,
+    "priceTarget": 3520.00,
+    "currentPrice": 3280.50,
+    "upside": 7.3,
+    "reasoning": "Discount to NAV, Tencent exposure, tech sector growth potential",
+    "sector": "Technology",
+    "exchange": "JSE"
+  },
+  {
+    "id": "rec-003",
+    "ticker": "FSR.JO",
+    "name": "FirstRand Bank Ltd",
+    "action": "BUY",
+    "confidence": 0.72,
+    "priceTarget": 68.50,
+    "currentPrice": 64.20,
+    "upside": 6.7,
+    "reasoning": "Strong dividend yield, financial sector recovery, SA economic stabilization",
+    "sector": "Financials",
+    "exchange": "JSE"
+  }
+]

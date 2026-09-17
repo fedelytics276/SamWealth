@@ -1,0 +1,275 @@
+{
+  "rec-001": {
+    "recommendationId": "rec-001",
+    "ticker": "SHP",
+    "name": "Shoprite Holdings Ltd",
+    "action": "BUY",
+    "confidence": 0.87,
+    "priceTarget": 215.00,
+    "currentPrice": 198.50,
+    "upside": 8.3,
+    "summary": "Shoprite presents a compelling buy opportunity based on strong financial performance, favorable market positioning, and attractive valuation metrics. The company's Q4 2023 results exceeded expectations with revenue growth of 12.3% year-over-year, driven by expansion in African markets and improved same-store sales. Technical indicators show a clear uptrend with RSI at 58, suggesting continued momentum without being overbought.",
+    "keyFactors": [
+      "Strong revenue growth of 12.3% YoY in Q4 2023, beating analyst estimates",
+      "Retail sector in South Africa showing recovery with consumer spending up 8.5%",
+      "Technical analysis indicates sustained uptrend with RSI at 58 (healthy momentum)",
+      "Positive sentiment from recent expansion announcements in African markets",
+      "P/E ratio of 14.2 below sector average of 16.8, indicating undervaluation"
+    ],
+    "nodes": [
+      {
+        "id": "node-1",
+        "type": "recommendation",
+        "title": "Recommendation: BUY Shoprite",
+        "summary": "Strong buy recommendation with 87% confidence based on comprehensive analysis",
+        "confidence": 0.87,
+        "details": "After analyzing financial data, market trends, technical indicators, and sentiment, the AI recommends buying Shoprite with high confidence.",
+        "source": "MOBU AI Engine"
+      },
+      {
+        "id": "node-2",
+        "type": "financial",
+        "title": "Financial Performance Q4 2023",
+        "summary": "Revenue growth of 12.3% YoY, exceeding analyst estimates",
+        "confidence": 0.92,
+        "details": "Shoprite reported R 189.5B in revenue for Q4 2023, up from R 168.7B in Q4 2022. Gross margin improved to 22.1% from 21.3%. Operating income increased 15.2% to R 8.4B.",
+        "source": "Shoprite Q4 2023 Earnings Report"
+      },
+      {
+        "id": "node-3",
+        "type": "market",
+        "title": "Retail Sector Growth",
+        "summary": "South African retail sector showing strong recovery",
+        "confidence": 0.85,
+        "details": "Consumer spending in South Africa increased 8.5% in Q3 2023. Retail sales volume up 6.2%. Food and grocery segment particularly strong with 9.1% growth.",
+        "source": "Stats SA Retail Trade Sales Report"
+      },
+      {
+        "id": "node-4",
+        "type": "technical",
+        "title": "Technical Analysis: Uptrend",
+        "summary": "Strong technical indicators with RSI at 58",
+        "confidence": 0.78,
+        "details": "50-day moving average crossed above 200-day MA (golden cross). Price is 12% above 200-day MA. Volume trending higher. MACD showing bullish divergence.",
+        "source": "Technical Analysis Engine"
+      },
+      {
+        "id": "node-5",
+        "type": "sentiment",
+        "title": "Positive News Sentiment",
+        "summary": "Recent expansion announcements driving positive sentiment",
+        "confidence": 0.81,
+        "details": "Analysis of 247 news articles and social media posts over past 30 days shows 68% positive sentiment. Key themes: African expansion, digital transformation, supply chain improvements.",
+        "source": "News & Social Media Analysis"
+      },
+      {
+        "id": "node-6",
+        "type": "financial",
+        "title": "Valuation Metrics",
+        "summary": "P/E ratio of 14.2 indicates undervaluation",
+        "confidence": 0.88,
+        "details": "Current P/E of 14.2 is below sector average of 16.8 and 5-year average of 15.6. Price-to-Book ratio of 2.1 vs sector 2.8. EV/EBITDA of 7.8 vs sector 9.2.",
+        "source": "Financial Data Provider"
+      },
+      {
+        "id": "node-7",
+        "type": "regulatory",
+        "title": "Regulatory Compliance",
+        "summary": "All JSE compliance requirements met",
+        "confidence": 0.95,
+        "details": "Latest JSE SENS filings up to date. No pending regulatory issues. Corporate governance score: 87/100. All financial statements audited and approved.",
+        "source": "JSE SENS System"
+      }
+    ],
+    "edges": [
+      { "from": "node-2", "to": "node-1", "label": "supports" },
+      { "from": "node-3", "to": "node-1", "label": "supports" },
+      { "from": "node-4", "to": "node-1", "label": "supports" },
+      { "from": "node-5", "to": "node-1", "label": "supports" },
+      { "from": "node-6", "to": "node-1", "label": "supports" },
+      { "from": "node-7", "to": "node-1", "label": "validates" }
+    ]
+  },
+  "rec-002": {
+    "recommendationId": "rec-002",
+    "ticker": "NPN",
+    "name": "Naspers Ltd",
+    "action": "SELL",
+    "confidence": 0.82,
+    "priceTarget": 2850.00,
+    "currentPrice": 3120.00,
+    "upside": -8.7,
+    "summary": "Naspers is recommended for selling based on concerning valuation metrics and weakening fundamentals. Despite the company's strong exposure to Tencent, recent regulatory pressures in China and declining e-commerce margins present significant headwinds. The stock is trading at a premium to its sum-of-parts valuation, suggesting downside risk.",
+    "keyFactors": [
+      "Trading at 15% premium to sum-of-parts NAV valuation",
+      "Tencent exposure facing regulatory headwinds in China",
+      "E-commerce segment showing margin compression (down 3.2pp)",
+      "Technical indicators showing bearish momentum with RSI at 65 (overbought)",
+      "Negative sentiment from recent regulatory announcements"
+    ],
+    "nodes": [
+      {
+        "id": "node-1",
+        "type": "recommendation",
+        "title": "Recommendation: SELL Naspers",
+        "summary": "Sell recommendation with 82% confidence due to overvaluation and headwinds",
+        "confidence": 0.82,
+        "details": "Multiple factors suggest downside risk including premium valuation, regulatory concerns, and weakening fundamentals.",
+        "source": "MOBU AI Engine"
+      },
+      {
+        "id": "node-2",
+        "type": "financial",
+        "title": "Valuation Analysis",
+        "summary": "Trading at 15% premium to NAV",
+        "confidence": 0.89,
+        "details": "Sum-of-parts valuation estimates fair value at R 2,710. Current price of R 3,120 represents 15.1% premium. Historical average premium is 5-8%.",
+        "source": "Valuation Model"
+      },
+      {
+        "id": "node-3",
+        "type": "market",
+        "title": "China Regulatory Risk",
+        "summary": "Tencent facing increased regulatory scrutiny",
+        "confidence": 0.76,
+        "details": "New gaming regulations in China affecting Tencent's revenue outlook. Potential impact of 8-12% on Tencent's gaming division, which represents 32% of revenue.",
+        "source": "China Securities Regulatory Commission"
+      },
+      {
+        "id": "node-4",
+        "type": "financial",
+        "title": "E-commerce Margin Compression",
+        "summary": "Operating margins declined 3.2 percentage points",
+        "confidence": 0.84,
+        "details": "Takealot and other e-commerce operations showing margin pressure due to increased competition and logistics costs. Q2 2023 operating margin: 4.1% vs 7.3% in Q2 2022.",
+        "source": "Naspers Q2 2023 Results"
+      },
+      {
+        "id": "node-5",
+        "type": "technical",
+        "title": "Technical Analysis: Overbought",
+        "summary": "RSI at 65 indicates overbought conditions",
+        "confidence": 0.71,
+        "details": "Price approaching resistance at R 3,150. RSI at 65 suggests limited upside. MACD showing bearish divergence. Volume declining on recent price increases.",
+        "source": "Technical Analysis Engine"
+      },
+      {
+        "id": "node-6",
+        "type": "sentiment",
+        "title": "Negative Sentiment Trend",
+        "summary": "Market sentiment turning negative on regulatory news",
+        "confidence": 0.79,
+        "details": "Analysis of 182 articles shows sentiment deteriorating from 55% positive (30 days ago) to 38% positive (current). Key concerns: China regulation, margin pressure.",
+        "source": "News & Social Media Analysis"
+      },
+      {
+        "id": "node-7",
+        "type": "market",
+        "title": "Technology Sector Weakness",
+        "summary": "Global tech selloff affecting valuations",
+        "confidence": 0.73,
+        "details": "MSCI World Tech Index down 12% over 3 months. Emerging market tech stocks particularly affected. Average P/E compression of 15% across sector.",
+        "source": "Market Analysis"
+      }
+    ],
+    "edges": [
+      { "from": "node-2", "to": "node-1", "label": "supports" },
+      { "from": "node-3", "to": "node-1", "label": "supports" },
+      { "from": "node-4", "to": "node-1", "label": "supports" },
+      { "from": "node-5", "to": "node-1", "label": "supports" },
+      { "from": "node-6", "to": "node-1", "label": "supports" },
+      { "from": "node-7", "to": "node-1", "label": "context" }
+    ]
+  },
+  "rec-003": {
+    "recommendationId": "rec-003",
+    "ticker": "FSR",
+    "name": "FirstRand Bank Ltd",
+    "action": "BUY",
+    "confidence": 0.79,
+    "priceTarget": 72.50,
+    "currentPrice": 66.80,
+    "upside": 8.5,
+    "summary": "FirstRand presents a moderate buy opportunity driven by South Africa's economic stabilization and the bank's strong competitive position. While the financial sector faces ongoing challenges, FirstRand's diversified business model and consistent dividend policy provide downside protection. Improving credit metrics and ROE expansion support the positive outlook.",
+    "keyFactors": [
+      "ROE improved to 18.2% from 16.1% YoY, above sector average",
+      "Credit loss ratio declining: 0.92% vs 1.15% previous year",
+      "Dividend yield of 5.8% attractive in current rate environment",
+      "South African economy showing signs of stabilization (GDP +1.8%)",
+      "Technical analysis shows breakout above R 65 resistance level"
+    ],
+    "nodes": [
+      {
+        "id": "node-1",
+        "type": "recommendation",
+        "title": "Recommendation: BUY FirstRand",
+        "summary": "Buy recommendation with 79% confidence based on improving fundamentals",
+        "confidence": 0.79,
+        "details": "FirstRand shows improving profitability, credit quality, and attractive valuation despite sector headwinds.",
+        "source": "MOBU AI Engine"
+      },
+      {
+        "id": "node-2",
+        "type": "financial",
+        "title": "ROE Expansion",
+        "summary": "Return on Equity improved to 18.2%",
+        "confidence": 0.86,
+        "details": "ROE increased from 16.1% to 18.2% year-over-year. This exceeds the SA banking sector average of 16.5% and reflects improved operational efficiency and asset quality.",
+        "source": "FirstRand FY2023 Results"
+      },
+      {
+        "id": "node-3",
+        "type": "financial",
+        "title": "Credit Quality Improvement",
+        "summary": "Credit loss ratio declining to 0.92%",
+        "confidence": 0.88,
+        "details": "Credit loss ratio improved from 1.15% to 0.92%. Non-performing loans declined 8.3%. Coverage ratio strengthened to 142% from 135%.",
+        "source": "FirstRand FY2023 Results"
+      },
+      {
+        "id": "node-4",
+        "type": "market",
+        "title": "SA Economic Stabilization",
+        "summary": "South African GDP growth turning positive",
+        "confidence": 0.74,
+        "details": "SA GDP grew 1.8% in Q2 2023 after contracting in Q1. Inflation moderating to 5.2%. Improved power supply (load shedding reduced 40%). Business confidence index rising.",
+        "source": "South African Reserve Bank"
+      },
+      {
+        "id": "node-5",
+        "type": "financial",
+        "title": "Attractive Dividend Yield",
+        "summary": "5.8% dividend yield with sustainable payout",
+        "confidence": 0.82,
+        "details": "Current dividend yield of 5.8% well above 10-year government bonds (4.2%). Payout ratio of 58% sustainable. Dividend covered 1.7x by earnings.",
+        "source": "Dividend Analysis"
+      },
+      {
+        "id": "node-6",
+        "type": "technical",
+        "title": "Technical Breakout",
+        "summary": "Price broke above R 65 resistance level",
+        "confidence": 0.72,
+        "details": "Stock broke above R 65 resistance on strong volume. Now trading above 50-day and 200-day moving averages. RSI at 54 indicates room for upside.",
+        "source": "Technical Analysis Engine"
+      },
+      {
+        "id": "node-7",
+        "type": "market",
+        "title": "Banking Sector Recovery",
+        "summary": "JSE Banking Index showing strength",
+        "confidence": 0.77,
+        "details": "JSE Banking Index up 11% over past 3 months, outperforming overall market. Net interest margin expansion expected as rate cycle turns. Loan growth accelerating.",
+        "source": "Sector Analysis"
+      }
+    ],
+    "edges": [
+      { "from": "node-2", "to": "node-1", "label": "supports" },
+      { "from": "node-3", "to": "node-1", "label": "supports" },
+      { "from": "node-4", "to": "node-1", "label": "supports" },
+      { "from": "node-5", "to": "node-1", "label": "supports" },
+      { "from": "node-6", "to": "node-1", "label": "supports" },
+      { "from": "node-7", "to": "node-1", "label": "context" }
+    ]
+  }
+}

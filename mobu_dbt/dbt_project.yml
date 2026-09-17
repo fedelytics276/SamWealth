@@ -1,0 +1,73 @@
+
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'mobu_dbt'
+version: '1.0.0'
+config-version: 2
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'mobu_dbt'
+
+# These configurations specify where dbt should look for different types of files.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+# Documentation
+docs-paths: ["docs"]
+
+# Configuring models - MOBU Data Lineage Architecture
+models:
+  mobu_dbt:
+    # Staging layer: Raw data → validated, typed data
+    staging:
+      +materialized: view
+      +schema: staging
+      +tags: ["staging", "data_feed"]
+      
+    # Intermediate layer: Business logic transformations
+    intermediate:
+      +materialized: ephemeral
+      +tags: ["intermediate", "transformation"]
+      
+    # Marts layer: Final analytics models
+    marts:
+      +materialized: table
+      +schema: marts
+      +tags: ["marts", "analytics"]
+      
+      # Quality metrics marts
+      quality:
+        +tags: ["quality", "compliance"]
+
+# Seeds configuration
+seeds:
+  mobu_dbt:
+    +schema: seed_data
+    
+# Snapshots configuration
+snapshots:
+  mobu_dbt:
+    +target_schema: snapshots
+    +unique_key: id
+    +strategy: timestamp
+    +updated_at: updated_at
+
+# Variables for dynamic configuration
+vars:
+  # Quality thresholds from strategy.yaml
+  accuracy_threshold: 0.9995
+  reliability_threshold: 0.999
+  sharpe_threshold: 1.5
+  
+  # Date ranges for analysis
+  lookback_days: 90
+  forecast_days: 30

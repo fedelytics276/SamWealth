@@ -1,0 +1,443 @@
+# MOBU AI Quality Strategy Configuration
+# This file defines goals, thresholds, and behavior that can be adjusted without code changes
+
+version: "1.0"
+last_updated: "2026-09-06"
+environment: "production"  # production, staging, development
+
+# ============================================================================
+# CRITERION 1: ACCURACY (Right Data, Right Shape)
+# ============================================================================
+accuracy:
+  # Target accuracy score (% of data passing validation)
+  target_score: 0.9995  # 99.95%
+  
+  # Alert thresholds
+  warning_threshold: 0.999   # Alert if below 99.9%
+  critical_threshold: 0.995  # Critical alert if below 99.5%
+  
+  # Data validation rules
+  validation:
+    stock_prices:
+      enabled: true
+      min_price: 0.01
+      max_price: 10000.0
+      max_spike_pct: 20.0          # Flag if price changes > 20%
+      cross_source_tolerance: 0.5  # Max % difference between sources
+      
+    financial_statements:
+      enabled: true
+      require_audit: true
+      max_age_days: 120             # Max 120 days old
+      
+    technical_indicators:
+      enabled: true
+      statistical_bounds: true
+      correlation_check: true
+      
+    news_sentiment:
+      enabled: true
+      min_confidence: 0.70          # Min NLP confidence score
+      max_age_hours: 24
+  
+  # Data quality check frequency
+  check_frequency:
+    real_time: ["stock_prices", "technical_indicators"]
+    hourly: ["news_sentiment"]
+    daily: ["financial_statements"]
+  
+  # Cross-source validation
+  cross_source:
+    enabled: true
+    primary_source: "JSE_SENS"
+    secondary_source: "Reuters"
+    tertiary_source: "Bloomberg"
+    max_deviation_pct: 0.5
+
+# ============================================================================
+# CRITERION 2: RELIABILITY (24/7, Always On)
+# ============================================================================
+reliability:
+  # Target uptime (% of time system is operational)
+  target_uptime: 0.999  # 99.9%
+  
+  # Component SLAs
+  components:
+    api_gateway:
+      target_uptime: 0.9995      # 99.95%
+      max_latency_ms: 200
+      failover_time_seconds: 30
+      
+    ai_engine:
+      target_uptime: 0.999       # 99.9%
+      max_latency_ms: 2000
+      failover_time_seconds: 120
+      
+    database:
+      target_uptime: 0.9999      # 99.99%
+      max_latency_ms: 100
+      failover_time_seconds: 60
+      
+    data_pipeline:
+      target_uptime: 0.995       # 99.5%
+      max_latency_ms: 5000
+      failover_time_seconds: 300
+  
+  # Circuit breaker configuration
+  circuit_breaker:
+    enabled: true
+    failure_threshold: 5          # Open circuit after 5 failures
+    timeout_seconds: 60           # Stay open for 60 seconds
+    half_open_requests: 1         # Test with 1 request before closing
+  
+  # Graceful degradation levels
+  degradation:
+    enabled: true
+    levels:
+      - name: "normal"
+        min_health_score: 0.95
+        features: ["all"]
+        
+      - name: "degraded_1"
+        min_health_score: 0.80
+        features: ["recommendations_with_warning", "portfolio_view"]
+        disabled: ["real_time_updates"]
+        
+      - name: "degraded_2"
+        min_health_score: 0.60
+        features: ["cached_recommendations", "portfolio_view"]
+        disabled: ["new_recommendations", "real_time_updates"]
+        
+      - name: "degraded_3"
+        min_health_score: 0.40
+        features: ["portfolio_view_only"]
+        disabled: ["recommendations", "updates"]
+        
+      - name: "emergency"
+        min_health_score: 0.0
+        features: ["static_content"]
+        disabled: ["all_dynamic"]
+  
+  # Health check configuration
+  health_checks:
+    interval_seconds: 10
+    timeout_seconds: 5
+    unhealthy_threshold: 3        # Mark unhealthy after 3 failures
+    healthy_threshold: 2          # Mark healthy after 2 successes
+  
+  # Multi-region configuration
+  regions:
+    primary: "southafrica"
+    secondary: "europe"
+    dr: "us-east"
+    failover_auto: true
+    failover_timeout_seconds: 300
+
+# ============================================================================
+# CRITERION 3: WELL-DEFINED GOALS (Sharpe Ratio & Success Metrics)
+# ============================================================================
+goals:
+  # Primary goal: Portfolio Sharpe ratio
+  sharpe_ratio:
+    target: 1.5                   # Target Sharpe ratio
+    minimum: 1.0                  # Minimum acceptable
+    measurement_period_days: 365  # Trailing 12 months
+    risk_free_rate: 0.05          # 5% South African risk-free rate
+    
+  # Secondary goal: Win rate
+  win_rate:
+    target: 0.65                  # 65% of recommendations succeed
+    minimum: 0.55                 # Minimum acceptable
+    measurement_period_days: 365
+    
+  # Risk limit: Maximum drawdown
+  max_drawdown:
+    limit: 0.15                   # Max 15% drawdown
+    warning: 0.12                 # Warn at 12%
+    critical: 0.18                # Critical at 18%
+    measurement_period_days: 365
+    
+  # Performance vs benchmark
+  benchmark:
+    index: "JSE_TOP_40"
+    target_alpha: 0.05            # Beat benchmark by 5%
+    minimum_alpha: 0.00           # At least match benchmark
+    
+  # Additional metrics
+  information_ratio:
+    target: 0.5
+    minimum: 0.3
+    
+  sortino_ratio:
+    target: 2.0
+    minimum: 1.5
+  
+  # Per-recommendation goals
+  recommendation:
+    # Expected return targets by confidence level
+    expected_return:
+      high_confidence: 0.15       # 15% for confidence > 85%
+      medium_confidence: 0.10     # 10% for confidence 70-85%
+      low_confidence: 0.05        # 5% for confidence < 70%
+    
+    # Holding period targets
+    holding_period_days:
+      short_term: 30
+      medium_term: 90
+      long_term: 180
+      
+    # Risk limits per recommendation
+    max_position_size: 0.10       # Max 10% of portfolio
+    stop_loss: -0.15              # Exit if down 15%
+    take_profit: 0.25             # Consider exit if up 25%
+    
+    # Confidence thresholds
+    min_confidence_to_show: 0.75  # Only show recs with 75%+ confidence
+    min_confidence_to_execute: 0.80  # Only auto-execute with 80%+
+  
+  # Success/failure classification
+  outcome_classification:
+    strong_success:
+      min_return: 0.15
+      max_holding_days_multiplier: 1.0
+      
+    success:
+      min_return: 0.00
+      max_holding_days_multiplier: 1.0
+      
+    weak_failure:
+      min_return: -0.05
+      max_holding_days_multiplier: 1.5
+      
+    failure:
+      min_return: -0.15
+      max_holding_days_multiplier: 2.0
+      
+    critical_failure:
+      min_return: -0.15
+      requires_review: true
+      halt_similar: true
+
+# ============================================================================
+# CRITERION 4: SELF-IMPROVING (Learn from Outcomes)
+# ============================================================================
+self_improving:
+  # Model retraining schedule
+  retraining:
+    enabled: true
+    schedule: "weekly"            # weekly, biweekly, monthly
+    day_of_week: "sunday"         # When to retrain
+    time_of_day: "02:00"          # 2 AM
+    
+    # Retraining triggers
+    min_new_outcomes: 100         # Need 100 new outcomes
+    min_days_since_last: 7        # At least 7 days since last training
+    
+    # Deployment criteria
+    min_improvement_pct: 2.0      # Must improve Sharpe by 2%+
+    min_test_samples: 500         # Need 500 test samples
+    confidence_level: 0.95        # 95% confidence
+    
+  # Feature learning
+  feature_learning:
+    enabled: true
+    analysis_frequency: "daily"
+    lookback_days: 90             # Analyze last 90 days
+    
+    # Feature importance thresholds
+    min_importance: 0.01          # Drop features below 1% importance
+    max_features: 100             # Keep top 100 features
+    
+    # Weight adjustment
+    max_weight_change: 0.20       # Max 20% weight change per update
+    smoothing_factor: 0.3         # Smooth changes (0.7 old + 0.3 new)
+  
+  # A/B testing
+  ab_testing:
+    enabled: true
+    default_traffic_split: 0.20   # 20% to variant B
+    min_duration_days: 14         # Run for at least 14 days
+    max_duration_days: 30         # Stop after 30 days
+    
+    # Statistical significance
+    confidence_level: 0.95        # 95% confidence
+    min_sample_size: 1000         # Need 1000 samples per variant
+    min_improvement: 0.05         # Need 5% improvement to deploy
+    
+    # Safety controls
+    max_concurrent_tests: 3       # Max 3 A/B tests at once
+    emergency_stop_loss: -0.10    # Stop test if losing 10%+
+  
+  # Failure analysis
+  failure_analysis:
+    enabled: true
+    trigger_on:
+      - "failure"
+      - "critical_failure"
+    
+    analysis_depth:
+      critical_failure: "deep"    # Root cause analysis
+      failure: "standard"         # Pattern detection
+      weak_failure: "light"       # Quick review
+    
+    auto_create_tickets: true
+    priority_map:
+      critical_failure: "P0"
+      failure: "P1"
+      weak_failure: "P2"
+  
+  # Learning metrics
+  learning_metrics:
+    track_improvement: true
+    calculate_daily: true
+    report_monthly: true
+    
+    # Effectiveness thresholds
+    min_effectiveness_score: 60   # Score out of 100
+
+# ============================================================================
+# MONITORING & ALERTING
+# ============================================================================
+monitoring:
+  # Alert channels
+  alerts:
+    email:
+      enabled: true
+      recipients:
+        - "ops@mobu.co.za"
+        - "cto@mobu.co.za"
+    
+    slack:
+      enabled: true
+      channel: "#mobu-alerts"
+      webhook_url: "${SLACK_WEBHOOK_URL}"
+    
+    pagerduty:
+      enabled: false
+      service_key: "${PAGERDUTY_KEY}"
+  
+  # Alert rules
+  alert_rules:
+    accuracy_breach:
+      enabled: true
+      severity: "critical"
+      condition: "accuracy_score < 0.995"
+      
+    uptime_breach:
+      enabled: true
+      severity: "critical"
+      condition: "uptime < 0.999"
+      
+    sharpe_below_target:
+      enabled: true
+      severity: "warning"
+      condition: "sharpe_ratio < 1.3"
+      
+    win_rate_low:
+      enabled: true
+      severity: "warning"
+      condition: "win_rate < 0.60"
+      
+    max_drawdown_exceeded:
+      enabled: true
+      severity: "critical"
+      condition: "max_drawdown > 0.15"
+      
+    model_performance_degraded:
+      enabled: true
+      severity: "warning"
+      condition: "current_sharpe < previous_sharpe * 0.95"
+  
+  # Dashboard configuration
+  dashboards:
+    accuracy_dashboard:
+      enabled: true
+      refresh_seconds: 30
+      
+    reliability_dashboard:
+      enabled: true
+      refresh_seconds: 10
+      
+    goals_dashboard:
+      enabled: true
+      refresh_seconds: 60
+      
+    learning_dashboard:
+      enabled: true
+      refresh_seconds: 300
+
+# ============================================================================
+# REGULATORY COMPLIANCE
+# ============================================================================
+compliance:
+  # Audit trail
+  audit_trail:
+    enabled: true
+    retention_days: 2555          # 7 years (regulatory requirement)
+    log_all_decisions: true
+    log_all_data_changes: true
+    
+  # Reporting
+  reporting:
+    quarterly_reports: true
+    monthly_summaries: true
+    weekly_snapshots: true
+    
+    # Report recipients
+    recipients:
+      - "compliance@mobu.co.za"
+      - "ceo@mobu.co.za"
+      
+  # Regulator requirements
+  regulators:
+    FSCA:  # Financial Sector Conduct Authority (South Africa)
+      enabled: true
+      reports: ["quarterly", "annual"]
+      audit_trail: true
+      
+    JSE:   # Johannesburg Stock Exchange
+      enabled: true
+      reports: ["monthly"]
+      
+  # Data retention
+  data_retention:
+    recommendations: 2555         # 7 years
+    outcomes: 2555
+    model_versions: "indefinite"
+    data_quality_checks: 1825     # 5 years
+    ab_tests: 1825
+
+# ============================================================================
+# FEATURE FLAGS
+# ============================================================================
+features:
+  # Enable/disable major features
+  data_quality_service: true
+  goal_tracking: true
+  learning_pipeline: true
+  ab_testing: true
+  failure_analysis: true
+  
+  # Experimental features
+  experimental:
+    advanced_sentiment: false
+    alternative_data: false
+    crypto_recommendations: false
+
+# ============================================================================
+# NOTES
+# ============================================================================
+# How to use this file:
+# 1. Adjust goals (Sharpe target, win rate, etc.) as needed
+# 2. Modify thresholds based on market conditions
+# 3. Enable/disable features for testing
+# 4. Update alert recipients
+# 5. Change retraining schedule
+#
+# Changes take effect immediately after saving (hot reload)
+# No code deployment required for configuration changes
+#
+# Version control:
+# - Commit changes to git
+# - Tag major changes (v1.0, v1.1, etc.)
+# - Document rationale in commit messages

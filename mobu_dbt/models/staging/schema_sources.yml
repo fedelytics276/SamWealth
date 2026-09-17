@@ -1,0 +1,49 @@
+version: 2
+
+sources:
+  - name: raw_feeds
+    description: "Raw data feeds from external sources and system tables"
+    database: mobu_dev
+    schema: raw_data
+    tables:
+      # Data Feed Tables (US/Global)
+      - name: price_data_raw
+        description: "Raw price data from Bloomberg, Refinitiv, exchanges"
+      - name: onchain_data_raw
+        description: "Raw on-chain data from blockchain networks"
+      - name: news_data_raw
+        description: "Raw news and sentiment data"
+      - name: macro_data_raw
+        description: "Raw macroeconomic indicators"
+      
+      # African Market Tables
+      - name: african_price_feeds
+        description: "African stock price data (JSE, NGX, NSE, EGX, GSE, BRVM)"
+      - name: alternative_data
+        description: "Alternative data: Quiver Quantitative, African government contracts"
+      - name: broker_connections
+        description: "User OAuth connections to brokers (EasyEquities, Bamboo, Chaka)"
+      - name: executed_trades
+        description: "Real trades executed via broker APIs"
+      - name: payment_transactions
+        description: "Deposits/withdrawals via M-Pesa, Paystack, Flutterwave"
+      - name: paper_trading_accounts
+        description: "Paper trading accounts ($100k virtual cash)"
+      - name: paper_trades
+        description: "Simulated trades (paper trading)"
+      - name: paper_holdings
+        description: "Current paper trading positions"
+      - name: currency_exchange_rates
+        description: "FX rates for African currencies (USD/NGN, USD/KES, USD/ZAR)"
+      
+      # System Tables for Quality Tracking
+      - name: recommendations
+        description: "Recommendation outcomes for accuracy tracking (Criterion 1)"
+      - name: system_health
+        description: "System health checks for reliability tracking (Criterion 2)"
+      - name: portfolio_valuations
+        description: "Portfolio valuations for Sharpe ratio calculation (Criterion 3)"
+      - name: model_versions
+        description: "ML model versions for self-improvement tracking (Criterion 4)"
+      - name: model_feedback
+        description: "Model feedback events for learning metrics (Criterion 4)"

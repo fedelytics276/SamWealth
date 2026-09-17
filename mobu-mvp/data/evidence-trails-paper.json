@@ -1,0 +1,516 @@
+{
+  "aapl-paper-trade": {
+    "id": "aapl-paper-trade",
+    "symbol": "AAPL",
+    "company_name": "Apple Inc.",
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 92.5,
+      "target_price": 235.00,
+      "current_price": 223.45,
+      "upside_pct": 5.17,
+      "recommended_at": "2026-09-13T14:30:00Z",
+      "executed_at": "2026-09-13T14:35:22Z",
+      "quantity": 10,
+      "filled_price": 223.50,
+      "total_cost": 2235.00,
+      "status": "FILLED"
+    },
+    "evidence_chain": [
+      {
+        "step": 1,
+        "category": "Price Data Analysis",
+        "title": "Technical Momentum Building",
+        "description": "AAPL showing strong bullish technicals",
+        "data_points": [
+          {
+            "label": "50-day Moving Average",
+            "value": "$218.30",
+            "signal": "bullish",
+            "explanation": "Price trading above 50-day MA indicates upward momentum"
+          },
+          {
+            "label": "Relative Strength Index (RSI)",
+            "value": "58.2",
+            "signal": "bullish",
+            "explanation": "RSI in healthy range (40-70), room for upside before overbought"
+          },
+          {
+            "label": "Trading Volume",
+            "value": "52.3M shares",
+            "signal": "bullish",
+            "explanation": "Above 30-day average (48.5M), increased buying interest"
+          }
+        ],
+        "sources": [
+          "Bloomberg Terminal - Real-time OHLCV data",
+          "Refinitiv Datastream - Technical indicators"
+        ],
+        "weight": 25
+      },
+      {
+        "step": 2,
+        "category": "Alternative Data Signal",
+        "title": "Congressional Insider Activity",
+        "description": "High-profile political figures increasing AAPL positions",
+        "data_points": [
+          {
+            "label": "Nancy Pelosi Purchase",
+            "value": "$2,000,000 - $5,000,000",
+            "signal": "very_bullish",
+            "explanation": "Call options purchased on 2026-08-15, historically accurate predictor",
+            "timestamp": "2026-08-15",
+            "actor": "Nancy Pelosi (House Speaker)",
+            "transaction_type": "CALL OPTIONS"
+          },
+          {
+            "label": "Senate Commerce Committee Activity",
+            "value": "3 buys, 0 sells",
+            "signal": "bullish",
+            "explanation": "Committee members with tech oversight showing unanimous buying",
+            "timeframe": "Last 30 days"
+          }
+        ],
+        "sources": [
+          "Quiver Quantitative - Congressional Trading API",
+          "STOCK Act Filings - senate.gov"
+        ],
+        "weight": 35,
+        "mobu_advantage": "Alternative data edge: detecting congressional activity 2-3 weeks before mainstream news"
+      },
+      {
+        "step": 3,
+        "category": "Fundamental Analysis",
+        "title": "Strong Quarterly Earnings Beat",
+        "description": "Q3 2026 results exceeded analyst expectations",
+        "data_points": [
+          {
+            "label": "EPS (Earnings Per Share)",
+            "value": "$1.58 actual vs $1.52 estimate",
+            "signal": "bullish",
+            "explanation": "Beat by 3.9%, demonstrates operational excellence"
+          },
+          {
+            "label": "iPhone Revenue",
+            "value": "$42.3B (+8% YoY)",
+            "signal": "bullish",
+            "explanation": "iPhone 16 cycle performing better than expected in emerging markets"
+          },
+          {
+            "label": "Services Revenue",
+            "value": "$25.1B (+12% YoY)",
+            "signal": "very_bullish",
+            "explanation": "High-margin services segment accelerating, improves gross margin profile"
+          },
+          {
+            "label": "Gross Margin",
+            "value": "48.2% (vs 46.8% prior quarter)",
+            "signal": "bullish",
+            "explanation": "Margin expansion indicates pricing power and efficiency gains"
+          }
+        ],
+        "sources": [
+          "Apple Q3 2026 Earnings Call - Sept 2, 2026",
+          "Bloomberg Intelligence - Financial Analysis"
+        ],
+        "weight": 20
+      },
+      {
+        "step": 4,
+        "category": "Sentiment Analysis",
+        "title": "Positive News Flow & Social Sentiment",
+        "description": "Overwhelmingly positive media coverage and social media buzz",
+        "data_points": [
+          {
+            "label": "News Sentiment Score",
+            "value": "+0.78 (scale: -1 to +1)",
+            "signal": "very_bullish",
+            "explanation": "78% positive sentiment across 127 news articles in last 7 days"
+          },
+          {
+            "label": "Key Headlines",
+            "value": "Vision Pro 2.0 launch exceeds expectations",
+            "signal": "bullish",
+            "explanation": "Augmented reality product gaining traction, opens new revenue stream"
+          },
+          {
+            "label": "Social Media Buzz",
+            "value": "145K mentions (+23% vs prior week)",
+            "signal": "bullish",
+            "explanation": "Increased retail investor interest, StockTwits bullish sentiment 71%"
+          },
+          {
+            "label": "Analyst Upgrades",
+            "value": "3 upgrades, 0 downgrades (last 14 days)",
+            "signal": "bullish",
+            "explanation": "Morgan Stanley, JPM, Goldman all raised price targets to $240-250 range"
+          }
+        ],
+        "sources": [
+          "NewsAPI.org - Aggregated news sentiment",
+          "StockTwits API - Social sentiment",
+          "Bloomberg Terminal - Analyst ratings"
+        ],
+        "weight": 10
+      },
+      {
+        "step": 5,
+        "category": "Macro Economic Context",
+        "title": "Favorable Market Environment",
+        "description": "Supportive macroeconomic conditions for tech stocks",
+        "data_points": [
+          {
+            "label": "Fed Interest Rate Outlook",
+            "value": "Expected 0.25% cut in Nov 2026",
+            "signal": "bullish",
+            "explanation": "Lower rates benefit growth stocks, improve DCF valuations"
+          },
+          {
+            "label": "US GDP Growth",
+            "value": "2.8% annualized (Q3 2026)",
+            "signal": "bullish",
+            "explanation": "Healthy consumer spending supports iPhone/Mac demand"
+          },
+          {
+            "label": "Tech Sector Performance (QQQ)",
+            "value": "+12.4% YTD",
+            "signal": "bullish",
+            "explanation": "Tech sector outperforming S&P 500 (+8.2%), sector rotation favors growth"
+          }
+        ],
+        "sources": [
+          "Federal Reserve Economic Data (FRED)",
+          "Bureau of Economic Analysis - GDP report"
+        ],
+        "weight": 10
+      }
+    ],
+    "risk_factors": [
+      {
+        "risk": "China Revenue Exposure",
+        "severity": "Medium",
+        "description": "25% of revenue from Greater China region, geopolitical tensions could impact sales",
+        "mitigation": "Diversifying manufacturing to India/Vietnam reduces supply chain risk"
+      },
+      {
+        "risk": "Antitrust Scrutiny",
+        "severity": "Low",
+        "description": "EU Digital Markets Act compliance requirements",
+        "mitigation": "Apple proactively adjusting App Store policies, risk priced in"
+      },
+      {
+        "risk": "Valuation Premium",
+        "severity": "Low",
+        "description": "P/E ratio of 32x vs S&P 500 average of 21x",
+        "mitigation": "Justified by superior margins (48% vs 12% avg), ecosystem moat"
+      }
+    ],
+    "ai_confidence_breakdown": {
+      "total_confidence": 92.5,
+      "factors": [
+        {
+          "factor": "Congressional Trading Signal (Alternative Data)",
+          "contribution": 35,
+          "reasoning": "Nancy Pelosi's AAPL call options purchase historically has 78% accuracy rate predicting 30-day returns"
+        },
+        {
+          "factor": "Technical Momentum",
+          "contribution": 25,
+          "reasoning": "All key indicators (MA crossover, RSI, volume) aligned bullish, 89% probability of +5% move in 30 days"
+        },
+        {
+          "factor": "Fundamental Strength",
+          "contribution": 20,
+          "reasoning": "Earnings beat + margin expansion + services growth = strong financial health"
+        },
+        {
+          "factor": "Sentiment Analysis",
+          "contribution": 10,
+          "reasoning": "Positive news flow + analyst upgrades create favorable momentum"
+        },
+        {
+          "factor": "Macro Tailwinds",
+          "contribution": 10,
+          "reasoning": "Fed rate cuts expected, benefits high-growth stocks like AAPL"
+        }
+      ],
+      "historical_accuracy": "91.2% accuracy on similar signal patterns (n=127 historical trades)",
+      "expected_return": "+5.2% in 30 days (70% probability)",
+      "risk_adjusted_score": "8.9/10 (Sharpe ratio: 1.8)"
+    },
+    "execution_details": {
+      "broker": "Alpaca Paper Trading",
+      "order_type": "Market",
+      "time_in_force": "GTC (Good Till Cancelled)",
+      "commission": "$0.00 (paper account)",
+      "slippage": "$0.05 (0.02%)",
+      "execution_venue": "NASDAQ",
+      "settlement_date": "2026-09-17 (T+2)"
+    },
+    "performance_tracking": {
+      "entry_date": "2026-09-13",
+      "entry_price": "$223.50",
+      "current_price": "$226.80",
+      "current_pnl": "+$33.00",
+      "current_pnl_pct": "+1.48%",
+      "days_held": 1,
+      "target_exit": "$235.00 (+5.1%) or stop loss $215.00 (-3.8%)"
+    }
+  },
+  "nvda-paper-trade": {
+    "id": "nvda-paper-trade",
+    "symbol": "NVDA",
+    "company_name": "NVIDIA Corporation",
+    "recommendation": {
+      "action": "BUY",
+      "confidence": 88.3,
+      "target_price": 145.00,
+      "current_price": 138.20,
+      "upside_pct": 4.92,
+      "recommended_at": "2026-09-12T10:15:00Z",
+      "executed_at": "2026-09-12T10:22:18Z",
+      "quantity": 15,
+      "filled_price": 138.35,
+      "total_cost": 2075.25,
+      "status": "FILLED"
+    },
+    "evidence_chain": [
+      {
+        "step": 1,
+        "category": "Alternative Data - Insider Trading",
+        "title": "Significant Insider Buying Activity",
+        "description": "NVIDIA executives and board members increasing positions",
+        "data_points": [
+          {
+            "label": "CEO Jensen Huang - Form 4 Filing",
+            "value": "$15M stock purchase",
+            "signal": "very_bullish",
+            "explanation": "First open-market purchase by CEO in 18 months, signals strong conviction",
+            "timestamp": "2026-08-28",
+            "form": "SEC Form 4"
+          },
+          {
+            "label": "Board Member Tench Coxe",
+            "value": "$2.3M purchase",
+            "signal": "bullish",
+            "explanation": "Increased stake by 12%, insider buying rarely wrong on timing",
+            "timestamp": "2026-09-05"
+          },
+          {
+            "label": "Insider Sentiment Score",
+            "value": "9.2/10 (highly bullish)",
+            "signal": "very_bullish",
+            "explanation": "5 insider buys, 0 sells in last 60 days = unanimous positive view"
+          }
+        ],
+        "sources": [
+          "SEC EDGAR - Form 4 Filings",
+          "Quiver Quantitative - Insider Trading API"
+        ],
+        "weight": 40,
+        "mobu_advantage": "Detected insider cluster buying 3 days before analyst upgrades"
+      },
+      {
+        "step": 2,
+        "category": "Fundamental Catalyst",
+        "title": "AI Data Center Demand Surge",
+        "description": "Blackwell GPU platform orders exceeding supply",
+        "data_points": [
+          {
+            "label": "Blackwell GPU Backlog",
+            "value": "$200B+ orders (12+ month wait)",
+            "signal": "very_bullish",
+            "explanation": "H200 and B200 GPUs sold out through Q3 2027, unprecedented demand"
+          },
+          {
+            "label": "Data Center Revenue Growth",
+            "value": "+134% YoY",
+            "signal": "very_bullish",
+            "explanation": "AI infrastructure buildout by hyperscalers (AWS, Azure, Google) accelerating"
+          },
+          {
+            "label": "Gross Margin",
+            "value": "78.4% (industry-leading)",
+            "signal": "very_bullish",
+            "explanation": "Pricing power from AI chip monopoly, competitors 2+ years behind"
+          },
+          {
+            "label": "Forward P/E Ratio",
+            "value": "28x (vs 45x 6 months ago)",
+            "signal": "bullish",
+            "explanation": "Valuation compression despite 50%+ earnings growth = attractive entry"
+          }
+        ],
+        "sources": [
+          "NVIDIA Q2 2026 Earnings Call",
+          "Hyperscaler CapEx Reports (AWS, Azure, Google Cloud)"
+        ],
+        "weight": 30
+      },
+      {
+        "step": 3,
+        "category": "Options Flow Analysis",
+        "title": "Unusual Call Option Activity",
+        "description": "Large institutional call buying detected",
+        "data_points": [
+          {
+            "label": "Call Volume Spike",
+            "value": "235K contracts (+180% vs 20-day avg)",
+            "signal": "very_bullish",
+            "explanation": "Sept $140 and Oct $150 calls heavily accumulated"
+          },
+          {
+            "label": "Put/Call Ratio",
+            "value": "0.32 (highly bullish)",
+            "signal": "very_bullish",
+            "explanation": "3x more call than put volume = institutions positioning for upside"
+          },
+          {
+            "label": "Dark Pool Activity",
+            "value": "$420M block trade (3M shares)",
+            "signal": "bullish",
+            "explanation": "Large institutional accumulation off-exchange, minimal market impact"
+          }
+        ],
+        "sources": [
+          "Unusual Whales - Options Flow Data",
+          "FINRA ATS (Alternative Trading System) Data"
+        ],
+        "weight": 15
+      },
+      {
+        "step": 4,
+        "category": "Technical Analysis",
+        "title": "Breakout from Consolidation Pattern",
+        "description": "NVDA breaking above 3-month resistance level",
+        "data_points": [
+          {
+            "label": "Cup and Handle Pattern",
+            "value": "Breakout confirmed at $137",
+            "signal": "bullish",
+            "explanation": "Classic bullish continuation pattern, target $148 (+7.3%)"
+          },
+          {
+            "label": "MACD Crossover",
+            "value": "Bullish crossover on daily chart",
+            "signal": "bullish",
+            "explanation": "Momentum indicator turning positive after 6-week consolidation"
+          },
+          {
+            "label": "Support Level",
+            "value": "$132 (20-day MA)",
+            "signal": "bullish",
+            "explanation": "Strong support established, low downside risk"
+          }
+        ],
+        "sources": [
+          "TradingView - Technical Indicators",
+          "Bloomberg Terminal - Chart Patterns"
+        ],
+        "weight": 10
+      },
+      {
+        "step": 5,
+        "category": "Competitive Moat",
+        "title": "AI Chip Dominance Unassailable",
+        "description": "NVIDIA maintaining 90%+ market share in AI training chips",
+        "data_points": [
+          {
+            "label": "CUDA Ecosystem Lock-in",
+            "value": "4.5M developers",
+            "signal": "very_bullish",
+            "explanation": "Software moat prevents customer switching, entrenched advantage"
+          },
+          {
+            "label": "Competitor Gap",
+            "value": "AMD MI300 2 years behind",
+            "signal": "bullish",
+            "explanation": "AMD/Intel alternatives lack CUDA compatibility, slower performance"
+          },
+          {
+            "label": "Customer Concentration Risk Mitigated",
+            "value": "Broadening beyond hyperscalers",
+            "signal": "bullish",
+            "explanation": "Enterprises, healthcare, automotive AI expanding customer base"
+          }
+        ],
+        "sources": [
+          "NVIDIA Developer Survey 2026",
+          "TechInsights - Competitive Analysis"
+        ],
+        "weight": 5
+      }
+    ],
+    "risk_factors": [
+      {
+        "risk": "Export Restrictions to China",
+        "severity": "Medium",
+        "description": "US government limiting H100/H200 chip sales to China",
+        "mitigation": "NVIDIA developing China-specific chips (H20), rest of world demand more than compensates"
+      },
+      {
+        "risk": "Customer Concentration",
+        "severity": "Medium",
+        "description": "Top 4 customers (AWS, Azure, Meta, Google) = 60% of revenue",
+        "mitigation": "All 4 increasing AI CapEx, and enterprise/auto segments growing rapidly"
+      },
+      {
+        "risk": "Valuation Pullback Risk",
+        "severity": "Low",
+        "description": "Stock up 180% in 12 months, profit-taking possible",
+        "mitigation": "Earnings growth justifies valuation, forward P/E reasonable at 28x"
+      }
+    ],
+    "ai_confidence_breakdown": {
+      "total_confidence": 88.3,
+      "factors": [
+        {
+          "factor": "Insider Cluster Buying (Alternative Data)",
+          "contribution": 40,
+          "reasoning": "CEO + board member purchases = strong insider conviction. Historical analysis: 85% win rate when CEO buys >$10M"
+        },
+        {
+          "factor": "Fundamental AI Demand Surge",
+          "contribution": 30,
+          "reasoning": "$200B+ Blackwell GPU backlog demonstrates insatiable demand, pricing power intact"
+        },
+        {
+          "factor": "Unusual Options Activity",
+          "contribution": 15,
+          "reasoning": "Institutional call buying + dark pool accumulation suggest smart money positioning for upside"
+        },
+        {
+          "factor": "Technical Breakout",
+          "contribution": 10,
+          "reasoning": "Cup & handle pattern + MACD crossover = momentum turning positive"
+        },
+        {
+          "factor": "Competitive Moat",
+          "contribution": 5,
+          "reasoning": "CUDA ecosystem lock-in provides durable advantage, hard to replicate"
+        }
+      ],
+      "historical_accuracy": "87.4% accuracy on similar insider + options flow patterns (n=93 trades)",
+      "expected_return": "+4.9% in 30 days (68% probability)",
+      "risk_adjusted_score": "8.5/10 (Sharpe ratio: 1.6)"
+    },
+    "execution_details": {
+      "broker": "Alpaca Paper Trading",
+      "order_type": "Market",
+      "time_in_force": "GTC (Good Till Cancelled)",
+      "commission": "$0.00 (paper account)",
+      "slippage": "$0.15 (0.11%)",
+      "execution_venue": "NASDAQ",
+      "settlement_date": "2026-09-16 (T+2)"
+    },
+    "performance_tracking": {
+      "entry_date": "2026-09-12",
+      "entry_price": "$138.35",
+      "current_price": "$141.20",
+      "current_pnl": "+$42.75",
+      "current_pnl_pct": "+2.06%",
+      "days_held": 2,
+      "target_exit": "$145.00 (+4.8%) or stop loss $132.00 (-4.6%)"
+    }
+  }
+}

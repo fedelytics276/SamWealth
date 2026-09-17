@@ -1,0 +1,31 @@
+{
+  "totalValue": 198500.00,
+  "dayChange": 2450.00,
+  "dayChangePercent": 1.25,
+  "cash": 15985.00,
+  "invested": 182515.00,
+  "holdings": [
+    {
+      "ticker": "SHP.JO",
+      "name": "Shoprite Holdings",
+      "quantity": 500,
+      "avgCost": 155.20,
+      "currentPrice": 168.20,
+      "value": 84100.00,
+      "gainLoss": 6500.00,
+      "gainLossPercent": 8.37,
+      "sector": "Consumer Staples"
+    },
+    {
+      "ticker": "NPN.JO",
+      "name": "Naspers Ltd",
+      "quantity": 30,
+      "avgCost": 3150.00,
+      "currentPrice": 3280.50,
+      "value": 98415.00,
+      "gainLoss": 3915.00,
+      "gainLossPercent": 4.14,
+      "sector": "Technology"
+    }
+  ]
+}

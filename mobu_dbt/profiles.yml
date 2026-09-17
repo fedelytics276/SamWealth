@@ -1,0 +1,34 @@
+mobu_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: fedeanalytics
+      password: ""
+      port: 5432
+      dbname: mobu_dev
+      schema: analytics
+      threads: 4
+      keepalives_idle: 0
+      connect_timeout: 10
+      
+    staging:
+      type: postgres
+      host: "{{ env_var('STAGING_DB_HOST', 'localhost') }}"
+      user: mobu_staging
+      password: "{{ env_var('MOBU_STAGING_PASSWORD') }}"
+      port: 5432
+      dbname: mobu_staging
+      schema: analytics
+      threads: 4
+      
+    prod:
+      type: postgres
+      host: "{{ env_var('PROD_DB_HOST') }}"
+      user: mobu_prod
+      password: "{{ env_var('MOBU_PROD_PASSWORD') }}"
+      port: 5432
+      dbname: mobu_production
+      schema: analytics
+      threads: 8
