@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
+import { GetServerSideProps } from 'next'
 import Navigation from '@/components/Navigation'
 import EvidenceGraph from '@/components/EvidenceGraph'
 import { ArrowLeft, Loader2, AlertCircle, TrendingUp, TrendingDown } from 'lucide-react'
@@ -256,4 +257,13 @@ export default function EvidenceTrail() {
       </div>
     </>
   )
+}
+
+// Use server-side rendering instead of static generation
+// This prevents the "getStaticPaths is not a function" error
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // Simply return props - actual data fetching happens client-side
+  return {
+    props: {},
+  }
 }
