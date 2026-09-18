@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Search, TrendingUp, TrendingDown, Loader2, ExternalLink, ShoppingCart, RefreshCw } from 'lucide-react'
 import Link from 'next/link'
+import StockChart from './StockChart'
 
 interface StockLookupProps {
   onStockSelected?: (ticker: string, evidence: any) => void
@@ -257,6 +258,18 @@ export default function StockLookup({ onStockSelected }: StockLookupProps) {
               {evidence.summary.substring(0, 200)}...
             </p>
           </div>
+        </div>
+      )}
+
+      {/* Stock Chart - Shows when ticker is searched */}
+      {evidence && (
+        <div className="mt-6">
+          <StockChart 
+            symbol={evidence.ticker} 
+            exchange={evidence.exchange || 'NASDAQ'}
+            height={400}
+            showVolume={true}
+          />
         </div>
       )}
     </div>
